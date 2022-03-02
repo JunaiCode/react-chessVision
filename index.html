@@ -4,13 +4,142 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <title>Chess Game</title>
 </head>
 <body>
     <div id="root"></div>
-    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-    <script type="text/babel" src="./App.js"></script>
+ <script type="text/babel">
+
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square">
+        {/* TODO */}
+      </button>
+    );
+  }
+}
+
+class Board extends React.Component {
+  renderSquare(i) {
+    return <Square />;
+  }
+
+  render() {
+    const status = 'Coordinate: ';
+
+    return (
+      <div>
+        <div className="status">{status}</div>
+        <div className="board-row">
+          {this.renderSquare('a8')}
+          {this.renderSquare('b8')}
+          {this.renderSquare('c8')}
+          {this.renderSquare('d8')}
+          {this.renderSquare('e8')}
+          {this.renderSquare('f8')}
+          {this.renderSquare('g8')}
+          {this.renderSquare('h8')}
+        </div>
+        <div className="board-row">
+          {this.renderSquare('a7')}
+          {this.renderSquare('b7')}
+          {this.renderSquare('c7')}
+          {this.renderSquare('d7')}
+          {this.renderSquare('e7')}
+          {this.renderSquare('f7')}
+          {this.renderSquare('g7')}
+          {this.renderSquare('h7')}
+        </div>
+        <div className="board-row">
+          {this.renderSquare('a6')}
+          {this.renderSquare('b6')}
+          {this.renderSquare('c6')}
+          {this.renderSquare('d6')}
+          {this.renderSquare('e6')}
+          {this.renderSquare('f6')}
+          {this.renderSquare('g6')}
+          {this.renderSquare('h6')}
+        </div>
+        <div className="board-row">
+          {this.renderSquare('a5')}
+          {this.renderSquare('b5')}
+          {this.renderSquare('c5')}
+          {this.renderSquare('d5')}
+          {this.renderSquare('e5')}
+          {this.renderSquare('f5')}
+          {this.renderSquare('g5')}
+          {this.renderSquare('h5')}
+        </div>
+        <div className="board-row">
+          {this.renderSquare('a4')}
+          {this.renderSquare('b4')}
+          {this.renderSquare('c4')}
+          {this.renderSquare('d4')}
+          {this.renderSquare('e4')}
+          {this.renderSquare('f4')}
+          {this.renderSquare('g4')}
+          {this.renderSquare('h4')}
+        </div>
+        <div className="board-row">
+          {this.renderSquare('a3')}
+          {this.renderSquare('b3')}
+          {this.renderSquare('c3')}
+          {this.renderSquare('d3')}
+          {this.renderSquare('e3')}
+          {this.renderSquare('f3')}
+          {this.renderSquare('g3')}
+          {this.renderSquare('h3')}
+        </div>
+        <div className="board-row">
+          {this.renderSquare('a2')}
+          {this.renderSquare('b2')}
+          {this.renderSquare('c2')}
+          {this.renderSquare('d2')}
+          {this.renderSquare('e2')}
+          {this.renderSquare('f2')}
+          {this.renderSquare('g2')}
+          {this.renderSquare('h2')}
+        </div>
+        <div className="board-row">
+          {this.renderSquare('a1')}
+          {this.renderSquare('b1')}
+          {this.renderSquare('c1')}
+          {this.renderSquare('d1')}
+          {this.renderSquare('e1')}
+          {this.renderSquare('f1')}
+          {this.renderSquare('g1')}
+          {this.renderSquare('h1')}
+        </div>
+      </div>
+    );
+  }
+}
+
+class Game extends React.Component {
+  render() {
+    return (
+      <div className="game">
+        <div className="game-board">
+          <Board />
+        </div>
+        <div className="game-info">
+          <div>{/* status */}</div>
+          <ol>{/* TODO */}</ol>
+        </div>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
+    </script>
+     
 </body>
 </html>
