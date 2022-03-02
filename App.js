@@ -12,3 +12,27 @@ function Square(isEven, props) {
         </button>
     );
 }
+
+class Board extends React.Component {
+
+    renderSquare(i) {
+        return(
+            <Square 
+                value={this.props.squares[i]}
+                onClick={props.onClick(i)}
+            />
+        );
+    }
+
+    render () {
+        return(
+            <div>
+
+            </div>
+        );
+    }
+}
+
+/* -------------------------------------------- */
+
+ReactDOM.render(<Square value={"Hi"}/>, document.getElementById("root"));
