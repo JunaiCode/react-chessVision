@@ -1,0 +1,13 @@
+/* Variables */
+/* Components */
+.square {
+  width: 5rem;
+  height: 5rem;
+  border: none;
+  background-color: #a5ebeb;
+}
+.square__colored {
+  background-color: #2e72aa;
+}
+
+/*# sourceMappingURL=styles.css.map */

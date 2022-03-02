@@ -1,0 +1,19 @@
+/* Variables */
+
+$side: 5rem;
+$squareOdd: #a5ebeb;
+$squareEven: #2e72aa;
+
+/* Components */
+
+.square {
+
+    width: $side;
+    height: $side;
+    border: none;
+    background-color: $squareOdd;
+    
+    &__colored {
+        background-color: $squareEven;
+    }
+}
