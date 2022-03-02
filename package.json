@@ -1,0 +1,26 @@
+{
+  "name": "react-chessvision",
+  "version": "1.0.0",
+  "description": "An interactive chess board mockup",
+  "main": "App.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JunaiCode/react-chessVision.git"
+  },
+  "keywords": [
+    "Chess",
+    "React",
+    "Babel"
+  ],
+  "author": "JunaiCode, zacwastaken",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JunaiCode/react-chessVision/issues"
+  },
+  "homepage": "https://github.com/JunaiCode/react-chessVision#readme",
+  "dependencies": {
+    "babel": "^6.23.0"
+  }
+}
