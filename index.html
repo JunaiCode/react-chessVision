@@ -186,6 +186,58 @@ class Board extends React.Component {
   }
 }
 
+class Timer extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { seconds: 0 ,minutes: 1};
+    }
+    
+    tick() {
+        this.setState(state => ({
+            seconds: state.seconds - 1,
+            minutes: state.minutes,
+        }
+        ))
+        if(this.state.minutes == 1){
+            this.minutes();
+        }
+        
+        if(this.state.minutes == 0 && this.state.seconds == 0){
+            this.componentWillUnmount();
+        };
+    }
+    
+    startTime() {
+        const btn = document.getElementById('timer__start-btn');
+        btn.disabled = "disabled";
+        <Timer/>
+        this.interval = setInterval(() => this.tick(), 1000);
+    }
+    
+    componentWillUnmount() {
+        clearInterval(this.interval);
+    }
+
+    minutes(){
+        this.setState(state => ({
+        seconds: 59,
+        minutes: 0,
+        }
+        ));
+    }
+    
+    render() {
+        return (
+            <div className="timer__container">
+                <p className="timer__timer">TIME:   0{this.state.minutes}:{this.state.seconds}</p>
+                <div>
+                    <button id="timer__start-btn" className="timer__start-btn" onClick={() => this.startTime()}>START</button>
+                </div>
+            </div>
+        );
+    }
+}
+
 class Game extends React.Component {
   render() {
     return (
@@ -208,6 +260,7 @@ class Game extends React.Component {
                 <hr/>
                 <ol>{/* TODO */}</ol>
             </div>
+            <Timer />
       </div>
     );
   }
@@ -221,63 +274,11 @@ ReactDOM.render(
 
 <div id="timer"></div>
     <script type="text/babel">
-    class Timer extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = { seconds: 0 ,minutes: 1};
-        }
-        
-        tick() {
-            this.setState(state => ({
-                seconds: state.seconds - 1,
-                minutes: state.minutes,
-            }
-            ))
-            if(this.state.minutes == 1){
-                this.minutes();
-            }
-            
-            if(this.state.minutes == 0 && this.state.seconds == 0){
-                this.componentWillUnmount();
-            }
-            ;
-        }
-        
-        startTime() {
-            const btn = document.getElementById('timer__start-btn');
-            btn.disabled = "disabled";
-            <Timer/>
-            this.interval = setInterval(() => this.tick(), 1000);
-        }
-        
-        componentWillUnmount() {
-            clearInterval(this.interval);
-        }
 
-        minutes(){
-          this.setState(state => ({
-            seconds: 59,
-            minutes: 0,
-          }
-          ));
-        }
-      
-        render() {
-          return (
-                <div className="timer__container">
-                    <p className="timer__timer">TIME:   0{this.state.minutes}:{this.state.seconds}</p>
-                    <div>
-                        <button id="timer__start-btn" className="timer__start-btn" onClick={() => this.startTime()}>START</button>
-                    </div>
-                </div>
-          );
-        }
-      }
-
-      ReactDOM.render(
+      /* ReactDOM.render(
         <Timer />,
         document.getElementById('timer')
-      );
+      ); */
       </script>
       </div>
 </body>
