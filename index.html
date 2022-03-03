@@ -22,7 +22,12 @@
                'g1','g2','g3','g4','g5','g6','g7','g8',
                'h1','h2','h3','h4','h5','h6','h7','h8'];
 
-
+function getRandom() {
+    let randomIndex = Math.floor((Math.random() * ((VALUES.length-1) + 1)));
+    let value = VALUES[randomIndex];
+    VALUES.splice(randomIndex,1);
+    return value ;
+ };
  
  class Square extends React.Component {
     render() {
@@ -211,6 +216,8 @@ class Timer extends React.Component {
     }
     
     startTime() {
+        const label = document.getElementById("current-square-lbl");
+        label.innerHTML = "Find this square: <strong>" + getRandom() + "</strong>";
         const btn = document.getElementById('timer__start-btn');
         btn.disabled = "disabled";
         <Timer/>
@@ -237,6 +244,7 @@ class Timer extends React.Component {
                     <button id="timer__start-btn" className="timer__start-btn" onClick={() => this.startTime()}>START</button>
                 </div>
             </div>
+            
         );
     }
 }
