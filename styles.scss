@@ -121,8 +121,9 @@ div {
         display: flex;
         align-items: center;
         flex-direction: column;
-        background-color: $timerBarBackground;
-        border-radius: $cornerValue;
+        background-color: $squareEven;
+        border: 5px solid $boardBorderColor;
+        border-radius: $radiusValue;
     }
 }
 
@@ -134,8 +135,9 @@ div {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border: 5px solid $boardBorderColor;
         border-radius: $cornerValue;
-        background-color: $timerBarBackground;
+        background-color: $squareEven;
         min-height: 3.75rem;
     }
 
