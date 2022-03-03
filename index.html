@@ -35,7 +35,7 @@
         class_ += this.props.cornerClass;
 
         return (
-            <button className={class_}>
+            <button className={class_} onClick={this.props.onClick}>
                 {this.props.value.toUpperCase()}
             </button>
         );
@@ -46,9 +46,11 @@ class Board extends React.Component {
   
     constructor(props) {
     super(props);
-    this.state = {
-      squares: Array(64).fill(null)
-    };
+
+  }
+
+  handleClick(i) {
+    alert(i);
   }
   
     renderSquare(i, j) {
@@ -71,7 +73,7 @@ class Board extends React.Component {
             cornerClass = cornerClasses[3];
             break;
       }
-    return <Square even={isEven} cornerClass={cornerClass} value={i}/>;
+    return <Square even={isEven} cornerClass={cornerClass} value={i} onClick={() => this.handleClick(i)}/>;
     }
 
   render() {
