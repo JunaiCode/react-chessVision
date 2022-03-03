@@ -31,12 +31,12 @@
  
  class Square extends React.Component {
     render() {
-        let class_ = this.props.even ? "square__colored" : "square";
+        let class_ = this.props.even ? "square square__colored" : "square";
         class_ += this.props.cornerClass;
 
         return (
             <button className={class_}>
-                {this.props.value}
+                {this.props.value.toUpperCase()}
             </button>
         );
     }
@@ -197,7 +197,7 @@ ReactDOM.render(
           this.state = { seconds: 0 ,minutes: 1};
         }
       
-        thick() {
+        tick() {
           this.setState(state => ({
             seconds: state.seconds - 1,
             minutes: state.minutes,
@@ -214,7 +214,7 @@ ReactDOM.render(
         }
       
         startTime() {
-          this.interval = setInterval(() => this.thick(), 1000);
+          this.interval = setInterval(() => this.tick(), 1000);
         }
       
         componentWillUnmount() {
