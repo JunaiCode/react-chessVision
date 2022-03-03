@@ -16,6 +16,9 @@
  
  class Square extends React.Component {
     render() {
+        let class_ = this.props.even ? "square__colored" : "square";
+        class_ += this.props.cornerClass;
+
         return (
             <button className={class_}>
                 {this.props.value}
@@ -33,12 +36,31 @@ class Board extends React.Component {
     };
   }
   
-  renderSquare(i) {
-    return <Square />;
-  }
+    renderSquare(i, j) {
+      const isEven = j % 2 == 0;
+      const cornerClasses = [
+          " square__tl", " square__tr", " square__br", " square__bl"
+      ];
+      let cornerClass = "";
+      switch (i) {
+        case 'a8':
+            cornerClass = cornerClasses[0];
+            break;
+        case 'h8':
+            cornerClass = cornerClasses[1];
+            break;
+        case 'h1':
+            cornerClass = cornerClasses[2];
+            break;
+        case 'a1':
+            cornerClass = cornerClasses[3];
+            break;
+      }
+    return <Square even={isEven} cornerClass={cornerClass}/>;
+    }
 
   render() {
-    const status = 'Coordinate: ';
+    <div className="status">{status}</div>
 
     return (
         <div className="container">
