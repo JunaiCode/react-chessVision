@@ -16,6 +16,10 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h2 {
+    margin: 0;
+}
+
 div {
     padding: 0;
     margin: 0;
@@ -30,11 +34,11 @@ div {
     background-color: $squareOdd;
     font-size: medium;
     font-weight: bold;
-    color: $squareEven;
+    color: $squareOdd;
     transition: all 350ms ease-in-out;
     
     &__colored {
-        color: $squareOdd;
+        color: $squareEven;
         background-color: $squareEven;
     }
 
@@ -63,17 +67,15 @@ div {
     }
 }
 
-.status {
-    padding-top: 0.25rem;
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    text-align: center;
-}
-
 .container {
     display: flex;
     flex-direction: column;
+
+    .letters {
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
 }
 
 .board {
@@ -93,8 +95,21 @@ div {
 
 .game {
     display: flex;
-    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    
+    &__board {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__numbers {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: calc(($side * 7.5));
+        margin-bottom: 2rem;
+    }
 }
 
 /* Timer */

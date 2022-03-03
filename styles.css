@@ -4,6 +4,10 @@ body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
+h2 {
+  margin: 0;
+}
+
 div {
   padding: 0;
   margin: 0;
@@ -18,12 +22,12 @@ div {
   background-color: #f8e7c1;
   font-size: medium;
   font-weight: bold;
-  color: #e79a67;
+  color: #f8e7c1;
   transition: all 350ms ease-in-out;
   /* Corners */
 }
 .square__colored {
-  color: #f8e7c1;
+  color: #e79a67;
   background-color: #e79a67;
 }
 .square:hover {
@@ -44,17 +48,14 @@ div {
   border-radius: 0 0 0 1.25rem;
 }
 
-.status {
-  padding-top: 0.25rem;
-  padding-bottom: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-align: center;
-}
-
 .container {
   display: flex;
   flex-direction: column;
+}
+.container .letters {
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .board {
@@ -72,8 +73,19 @@ div {
 
 .game {
   display: flex;
-  flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+.game__board {
+  display: flex;
+  flex-direction: column;
+}
+.game__numbers {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 33.75rem;
+  margin-bottom: 2rem;
 }
 
 /* Timer */
