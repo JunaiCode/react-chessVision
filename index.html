@@ -35,7 +35,7 @@
         class_ += this.props.cornerClass;
 
         return (
-            <button className={class_}>
+            <button className={class_} onClick={this.props.onClick}>
                 {this.props.value.toUpperCase()}
             </button>
         );
@@ -44,37 +44,35 @@
 
 class Board extends React.Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            squares: Array(64).fill(null)
-        };
-    }
+    super(props);
 
-    squareClicked() {
+  }
 
-    }
+  handleClick(i) {
+    alert(i);
+  }
   
     renderSquare(i, j) {
-        const isEven = j % 2 == 0;
-        const cornerClasses = [
-            " square__tl", " square__tr", " square__br", " square__bl"
-        ];
-        let cornerClass = "";
-        switch (i) {
-            case 'a8':
-                cornerClass = cornerClasses[0];
-                break;
-            case 'h8':
-                cornerClass = cornerClasses[1];
-                break;
-            case 'h1':
-                cornerClass = cornerClasses[2];
-                break;
-            case 'a1':
-                cornerClass = cornerClasses[3];
-                break;
-        }
-        return <Square even={isEven} cornerClass={cornerClass} value={i} onClick={() => this.squareClicked()}/>;
+      const isEven = j % 2 == 0;
+      const cornerClasses = [
+          " square__tl", " square__tr", " square__br", " square__bl"
+      ];
+      let cornerClass = "";
+      switch (i) {
+        case 'a8':
+            cornerClass = cornerClasses[0];
+            break;
+        case 'h8':
+            cornerClass = cornerClasses[1];
+            break;
+        case 'h1':
+            cornerClass = cornerClasses[2];
+            break;
+        case 'a1':
+            cornerClass = cornerClasses[3];
+            break;
+      }
+    return <Square even={isEven} cornerClass={cornerClass} value={i} onClick={() => this.handleClick(i)}/>;
     }
 
   render() {
