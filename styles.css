@@ -19,7 +19,7 @@ div {
   font-size: medium;
   font-weight: bold;
   color: #e79a67;
-  transition: all 500ms ease-in-out;
+  transition: all 350ms ease-in-out;
   /* Corners */
 }
 .square__colored {
@@ -28,7 +28,7 @@ div {
 }
 .square:hover {
   cursor: pointer;
-  border-radius: 1.25rem;
+  border-radius: 50%;
   filter: drop-shadow(0 0 0.5rem #f06f6fee);
 }
 .square__tl {
@@ -82,11 +82,29 @@ div {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #883333;
+  border-radius: 1.25rem;
+  background-color: #c96a2b;
 }
-.timer__wrapper {
-  display: flex;
-  align-items: center;
+.timer__timer {
+  font-weight: bold;
+  font-size: large;
+  color: #f8e7c1;
+}
+.timer__start-btn {
+  padding: 0.5rem;
+  background-color: #f8e7c1;
+  color: #c96a2b;
+  border: none;
+  border-radius: 1.25rem;
+  min-width: 7.5rem;
+  font-size: medium;
+  font-weight: bold;
+  text-align: center;
+  transition: all 350ms ease-in-out;
+}
+.timer__start-btn:hover {
+  cursor: pointer;
+  filter: drop-shadow(0 0 0.75rem #ff3d0dee);
 }
 
 /*# sourceMappingURL=styles.css.map */

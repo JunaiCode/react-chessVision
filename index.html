@@ -232,15 +232,9 @@ ReactDOM.render(
         render() {
           return (
                 <div className="timer__container">
-                    <div className="timer__wrapper">
-                        <h3>TIME: </h3>
-                        <h4> 
-                            {this.state.minutes}:
-                            {this.state.seconds}
-                        </h4>
-                    </div>
+                    <p className="timer__timer">TIME:  0{this.state.minutes}:0{this.state.seconds}</p>
                     <div>
-                        <button onClick={() => this.startTime()}>START</button>
+                        <button className="timer__start-btn" onClick={() => this.startTime()}>START</button>
                     </div>
                 </div>
           );

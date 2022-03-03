@@ -5,7 +5,8 @@ $squareOdd: #f8e7c1;
 $squareEven: #e79a67;
 $boardBorderColor: #5f5f5f;
 $highlight: #f06f6fee;
-$timerBarBackground: #883333;
+$highlightAlt: #ff3d0dee;
+$timerBarBackground: #c96a2b;
 $radiusValue: 1.5625rem;
 $cornerValue: 1.25rem;
 
@@ -30,7 +31,7 @@ div {
     font-size: medium;
     font-weight: bold;
     color: $squareEven;
-    transition: all 500ms ease-in-out;
+    transition: all 350ms ease-in-out;
     
     &__colored {
         color: $squareOdd;
@@ -39,7 +40,7 @@ div {
 
     &:hover {
         cursor: pointer;
-        border-radius: $cornerValue;
+        border-radius: 50%;
         filter: drop-shadow(0 0 0.5rem $highlight);
     }
 
@@ -104,11 +105,31 @@ div {
         display: flex;
         align-items: center;
         justify-content: space-between;
+        border-radius: $cornerValue;
         background-color: $timerBarBackground;
     }
 
-    &__wrapper {
-        display: flex;
-        align-items: center;
+    &__timer {
+        font-weight: bold;
+        font-size: large;
+        color: $squareOdd;
+    }
+
+    &__start-btn {
+        padding: 0.5rem;
+        background-color: $squareOdd;
+        color: $timerBarBackground;
+        border: none;
+        border-radius: $cornerValue;
+        min-width: 7.5rem;
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+        transition: all 350ms ease-in-out;
+
+        &:hover {
+            cursor: pointer;
+            filter: drop-shadow(0 0 0.75rem $highlightAlt); 
+        }
     }
 }
