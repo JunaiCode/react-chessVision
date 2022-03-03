@@ -45,9 +45,8 @@ class Board extends React.Component {
 
     getRandom() {
     let randomIndex = Math.floor((Math.random() * (VALUES.length + 1)));
-    let value = VALUES[randomIndex]
-    array.splice(randomIndex, randomIndex);
-    alert(value);
+    let value = VALUES[randomIndex];
+    VALUES.splice(randomIndex,1);
     return value ;
  }
 
@@ -60,7 +59,7 @@ class Board extends React.Component {
 
   handleClick(i) {
     const label = document.getElementById("current-square-lbl");
-    label.innerHTML = "Find this square: <strong>" + i + "</strong>";
+    label.innerHTML = "Find this square: <strong>" + this.getRandom() + "</strong>";
   }
   
     renderSquare(i, j) {
@@ -246,7 +245,7 @@ ReactDOM.render(
         startTime() {
             const btn = document.getElementById('timer__start-btn');
             btn.disabled = "disabled";
-            <Nomenclature/>
+            <Timer/>
             this.interval = setInterval(() => this.tick(), 1000);
         }
         
@@ -280,33 +279,5 @@ ReactDOM.render(
       );
       </script>
       </div>
-
-    <div id="nomenclature"></div>
-    <script type="text/babel">
-    class Nomenclature extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = { nomenclature: null};
-        }
-
-        generateNomenclature(i) {
-          this.setState(state => ({
-            nomenclature: i 
-          }
-          ))};
-      
-        render() {
-          return (
-                <div >
-                    <h1 >{this.state.nomenclature}</h1>
-                </div>
-          );
-        }}
-
-      ReactDOM.render(
-        <Nomenclature/>,
-        document.getElementById('nomenclature')
-      );
-      </script>
 </body>
 </html>
