@@ -45,11 +45,18 @@
 class Board extends React.Component {
     constructor(props) {
     super(props);
-
+    this.state={nomenclature: null};
   }
 
+
+  generateNomenclature(i) {
+          this.setState(state => ({
+            nomenclature: i 
+          }
+          ))};
+
   handleClick(i) {
-    alert(i);
+    this.generateNomenclature(this.getRandom());
   }
   
     renderSquare(i, j) {
@@ -76,9 +83,9 @@ class Board extends React.Component {
     }
 
   render() {
-    <div className="status">{status}</div>
-
+    
     return (
+        
         <div className="container">
             <div className="board">
                 <div className="board__row">
@@ -163,6 +170,7 @@ class Board extends React.Component {
                 </div>
             </div>
             <div className="status">{status}</div>
+            <div>{this.state.nomenclature}</div>
         </div>
     );
   }
@@ -190,7 +198,7 @@ ReactDOM.render(
 );
     </script>
 
-<div id="timer">
+<div id="timer"></div>
     <script type="text/babel">
     class Timer extends React.Component {
         constructor(props) {
@@ -217,6 +225,7 @@ ReactDOM.render(
         startTime() {
             const btn = document.getElementById('timer__start-btn');
             btn.disabled = "disabled";
+            <Nomenclature/>
             this.interval = setInterval(() => this.tick(), 1000);
         }
       
@@ -243,12 +252,40 @@ ReactDOM.render(
           );
         }
       }
-      
+
       ReactDOM.render(
         <Timer />,
         document.getElementById('timer')
       );
       </script>
-     
+      </div>
+
+    <div id="nomenclature"></div>
+    <script type="text/babel">
+    class Nomenclature extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { nomenclature: null};
+        }
+
+        generateNomenclature(i) {
+          this.setState(state => ({
+            nomenclature: i 
+          }
+          ))};
+      
+        render() {
+          return (
+                <div >
+                    <h1 >{this.state.nomenclature}</h1>
+                </div>
+          );
+        }}
+
+      ReactDOM.render(
+        <Nomenclature/>,
+        document.getElementById('nomenclature')
+      );
+      </script>
 </body>
 </html>
