@@ -44,7 +44,7 @@ class Board extends React.Component {
   }
 
     getRandom() {
-    let randomIndex = Math.floor((Math.random() * (VALUES.length + 1)));
+    let randomIndex = Math.floor((Math.random() * ((VALUES.length-1) + 1)));
     let value = VALUES[randomIndex];
     VALUES.splice(randomIndex,1);
     return value ;
