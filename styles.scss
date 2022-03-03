@@ -3,17 +3,38 @@
 $side: 5rem;
 $squareOdd: #a5ebeb;
 $squareEven: #2e72aa;
+$radiusValue: 1.5625rem;
 
 /* Components */
 
 .square {
-
     width: $side;
     height: $side;
     border: none;
     background-color: $squareOdd;
     
     &__colored {
+        width: $side;
+        height: $side;
+        border: none;
         background-color: $squareEven;
+    }
+
+    /* Corners */
+
+    &__tl {
+        border-radius: $radiusValue 0 0 0;
+    }
+
+    &__tr {
+        border-radius: 0 $radiusValue 0 0;
+    }
+
+    &__br {
+        border-radius: 0 0 $radiusValue 0;
+    }
+
+    &__bl {
+        border-radius: 0 0 0 $radiusValue;
     }
 }
