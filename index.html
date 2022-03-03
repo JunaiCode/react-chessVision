@@ -39,28 +39,31 @@
 
 class Board extends React.Component {
     constructor(props) {
-    super(props);
-    this.state={nomenclature: null};
-  }
+        super(props);
+        this.state={nomenclature: null, items: []};
+    }
 
     getRandom() {
-    let randomIndex = Math.floor((Math.random() * ((VALUES.length-1) + 1)));
-    let value = VALUES[randomIndex];
-    VALUES.splice(randomIndex,1);
-    return value ;
- }
+        let randomIndex = Math.floor((Math.random() * ((VALUES.length-1) + 1)));
+        let value = VALUES[randomIndex];
+        VALUES.splice(randomIndex,1);
+        return value ;
+    }
 
 
-  generateNomenclature(i) {
-          this.setState(state => ({
-            nomenclature: i 
-          }
-          ))};
+    generateNomenclature(i) {
+        this.setState(state => ({
+            nomenclature: i,
+            items: state.items.concat({id: i, value: i}) 
+        }
+    ))};
 
-  handleClick(i) {
-    const label = document.getElementById("current-square-lbl");
-    label.innerHTML = "Find this square: <strong>" + this.getRandom() + "</strong>";
-  }
+    handleClick(i) {
+        Game.props.items = this.state.items;
+        const label = document.getElementById("current-square-lbl");
+        label.innerHTML = "Find this square: <strong>" + this.getRandom() + "</strong>";
+        
+    }
   
     renderSquare(i, j) {
       const isEven = j % 2 == 0;
@@ -239,6 +242,7 @@ class Timer extends React.Component {
 }
 
 class Game extends React.Component {
+
   render() {
     return (
         <div>
@@ -259,7 +263,11 @@ class Game extends React.Component {
                 <div className="game__info">
                     <div id="current-square-lbl">Find this square: <strong>N.A.</strong></div>
                     <hr/>
-                    <ol>{/* TODO */}</ol>
+                    <ul>
+                        {this.props.items.map(item => (
+                            <li key={item.id}>{item.value}</li>
+                        ))}
+                    </ul>
                 </div>
             </div>
             <Timer />
