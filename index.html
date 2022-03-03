@@ -24,6 +24,14 @@ class Square extends React.Component {
 }
 
 class Board extends React.Component {
+  
+    constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(64).fill(null)
+    };
+  }
+  
   renderSquare(i) {
     return <Square />;
   }
@@ -140,6 +148,66 @@ ReactDOM.render(
   document.getElementById('root')
 );
     </script>
+
+<div id="timer">
+    <script type="text/babel">
+    class Timer extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { seconds: 0 ,minutes: 1};
+        }
+      
+        thick() {
+          this.setState(state => ({
+            seconds: state.seconds - 1,
+            minutes: state.minutes,
+          }
+          ))
+          if(this.state.minutes == 1){
+            this.minutes();
+          }
+
+          if(this.state.minutes == 0 && this.state.seconds == 0){
+            this.componentWillUnmount();
+          }
+          ;
+        }
+      
+        startTime() {
+          this.interval = setInterval(() => this.thick(), 1000);
+        }
+      
+        componentWillUnmount() {
+          clearInterval(this.interval);
+        }
+
+        minutes(){
+          this.setState(state => ({
+            seconds: 59,
+            minutes: 0,
+          }
+          ));
+        }
+      
+        render() {
+          return (
+            <div>
+              <b>TIME: </b> 
+              {this.state.minutes}:
+              {this.state.seconds}
+              <div>
+              <button onClick={() => this.startTime()}>START</button>
+              </div>
+            </div>
+          );
+        }
+      }
+      
+      ReactDOM.render(
+        <Timer />,
+        document.getElementById('timer')
+      );
+      </script>
      
 </body>
 </html>
