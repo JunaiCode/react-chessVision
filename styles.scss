@@ -122,8 +122,16 @@ div {
         align-items: center;
         flex-direction: column;
         background-color: $squareEven;
+        color: $squareOdd;
         border: 5px solid $boardBorderColor;
         border-radius: $radiusValue;
+
+        > hr {
+            width: 100%;
+            border: 0.0625rem solid $squareOdd;
+            border-radius: $cornerValue;
+            background-color: $squareOdd;
+        }
     }
 }
 
