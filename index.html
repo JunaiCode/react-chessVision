@@ -76,7 +76,6 @@ class Board extends React.Component {
     }
 
   render() {
-    <div className="status">{status}</div>
 
     return (
         <div className="container">
@@ -162,7 +161,16 @@ class Board extends React.Component {
                     {this.renderSquare('h1', 8)}
                 </div>
             </div>
-            <div className="status">{status}</div>
+            <div className="letters">
+                <h2>A</h2>
+                <h2>B</h2>
+                <h2>C</h2>
+                <h2>D</h2>
+                <h2>E</h2>
+                <h2>F</h2>
+                <h2>G</h2>
+                <h2>H</h2>
+            </div>
         </div>
     );
   }
@@ -171,14 +179,24 @@ class Board extends React.Component {
 class Game extends React.Component {
   render() {
     return (
-      <div className="game">
-        <div className="game-board">
-          <Board />
-        </div>
-        <div className="game-info">
-          <div>{/* status */}</div>
-          <ol>{/* TODO */}</ol>
-        </div>
+        <div className="game">
+            <div className="game__numbers">
+                <h2>8</h2>
+                <h2>7</h2>
+                <h2>6</h2>
+                <h2>5</h2>
+                <h2>4</h2>
+                <h2>3</h2>
+                <h2>2</h2>
+                <h2>1</h2>
+            </div>
+            <div className="game__board">
+                <Board />
+            </div>
+            <div className="game__info">
+                <div>{/* status */}</div>
+                <ol>{/* TODO */}</ol>
+            </div>
       </div>
     );
   }
