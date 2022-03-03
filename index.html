@@ -241,27 +241,29 @@ class Timer extends React.Component {
 class Game extends React.Component {
   render() {
     return (
-        <div className="game">
-            <div className="game__numbers">
-                <h2>8</h2>
-                <h2>7</h2>
-                <h2>6</h2>
-                <h2>5</h2>
-                <h2>4</h2>
-                <h2>3</h2>
-                <h2>2</h2>
-                <h2>1</h2>
-            </div>
-            <div className="game__board">
-                <Board />
-            </div>
-            <div className="game__info">
-                <div id="current-square-lbl">Find this square: <strong>N.A.</strong></div>
-                <hr/>
-                <ol>{/* TODO */}</ol>
+        <div>
+            <div className="game">
+                <div className="game__numbers">
+                    <h2>8</h2>
+                    <h2>7</h2>
+                    <h2>6</h2>
+                    <h2>5</h2>
+                    <h2>4</h2>
+                    <h2>3</h2>
+                    <h2>2</h2>
+                    <h2>1</h2>
+                </div>
+                <div className="game__board">
+                    <Board />
+                </div>
+                <div className="game__info">
+                    <div id="current-square-lbl">Find this square: <strong>N.A.</strong></div>
+                    <hr/>
+                    <ol>{/* TODO */}</ol>
+                </div>
             </div>
             <Timer />
-      </div>
+        </div>
     );
   }
 }
