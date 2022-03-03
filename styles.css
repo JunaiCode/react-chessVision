@@ -50,7 +50,6 @@ div {
 
 .container {
   display: flex;
-  flex-direction: column;
 }
 .container .letters {
   padding: 0 1.5rem;
@@ -63,6 +62,15 @@ div {
   width: 36rem;
   border: 5px solid #5f5f5f;
   border-radius: 1.5625rem;
+}
+.board__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.board__wrapper .letters {
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
 }
 .board__row {
   display: flex;

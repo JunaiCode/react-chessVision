@@ -69,7 +69,6 @@ div {
 
 .container {
     display: flex;
-    flex-direction: column;
 
     .letters {
         padding: 0 1.5rem;
@@ -84,6 +83,17 @@ div {
     width: calc($side * 8);
     border: 5px solid $boardBorderColor;
     border-radius: $radiusValue;
+
+    &__wrapper {
+        display: flex;
+    flex-direction: column;
+
+    .letters {
+        padding: 0 1.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    }
 
     &__row {
         display: flex;
