@@ -45,7 +45,7 @@ function getRandom() {
 class Board extends React.Component {
     constructor(props) {
         super(props);
-        this.state={nomenclature: null, items: []};
+        this.state={nomenclature: null};
     }
 
     getRandom() {
@@ -59,12 +59,10 @@ class Board extends React.Component {
     generateNomenclature(i) {
         this.setState(state => ({
             nomenclature: i,
-            items: state.items.concat({id: i, value: i}) 
         }
     ))};
 
     handleClick(i) {
-        Game.props.items = this.state.items;
         const label = document.getElementById("current-square-lbl");
         label.innerHTML = "Find this square: <strong>" + this.getRandom() + "</strong>";
         
@@ -272,9 +270,7 @@ class Game extends React.Component {
                     <div id="current-square-lbl">Find this square: <strong>N.A.</strong></div>
                     <hr/>
                     <ul>
-                        {this.props.items.map(item => (
-                            <li key={item.id}>{item.value}</li>
-                        ))}
+                        
                     </ul>
                 </div>
             </div>
