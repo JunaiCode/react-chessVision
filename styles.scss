@@ -110,6 +110,20 @@ div {
         height: calc(($side * 7.5));
         margin-bottom: 2rem;
     }
+
+    &__info {
+        padding: 1.5rem;
+        margin-top: 1rem;
+        margin-left: 2rem;
+        margin-bottom: 2rem;
+        height: calc(($side * 7.5));
+        min-width: 10rem;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        background-color: $timerBarBackground;
+        border-radius: $cornerValue;
+    }
 }
 
 /* Timer */

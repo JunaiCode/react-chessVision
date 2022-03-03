@@ -59,9 +59,8 @@ class Board extends React.Component {
           ))};
 
   handleClick(i) {
-
-    alert(this.value)
-    this.generateNomenclature("Dsadasda");
+    const label = document.getElementById("current-square-lbl");
+    label.innerHTML = "Find this square: <strong>" + i + "</strong>";
   }
   
     renderSquare(i, j) {
@@ -206,7 +205,7 @@ class Game extends React.Component {
                 <Board />
             </div>
             <div className="game__info">
-                <div>{/* status */}</div>
+                <div id="current-square-lbl">Find this square: <strong>N.A.</strong></div>
                 <ol>{/* TODO */}</ol>
             </div>
       </div>
@@ -224,35 +223,35 @@ ReactDOM.render(
     <script type="text/babel">
     class Timer extends React.Component {
         constructor(props) {
-          super(props);
-          this.state = { seconds: 0 ,minutes: 1};
+            super(props);
+            this.state = { seconds: 0 ,minutes: 1};
         }
-      
+        
         tick() {
-          this.setState(state => ({
-            seconds: state.seconds - 1,
-            minutes: state.minutes,
-          }
-          ))
-          if(this.state.minutes == 1){
-            this.minutes();
-          }
-
-          if(this.state.minutes == 0 && this.state.seconds == 0){
-            this.componentWillUnmount();
-          }
-          ;
+            this.setState(state => ({
+                seconds: state.seconds - 1,
+                minutes: state.minutes,
+            }
+            ))
+            if(this.state.minutes == 1){
+                this.minutes();
+            }
+            
+            if(this.state.minutes == 0 && this.state.seconds == 0){
+                this.componentWillUnmount();
+            }
+            ;
         }
-      
+        
         startTime() {
             const btn = document.getElementById('timer__start-btn');
             btn.disabled = "disabled";
             <Nomenclature/>
             this.interval = setInterval(() => this.tick(), 1000);
         }
-      
+        
         componentWillUnmount() {
-          clearInterval(this.interval);
+            clearInterval(this.interval);
         }
 
         minutes(){

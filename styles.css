@@ -87,6 +87,19 @@ div {
   height: 33.75rem;
   margin-bottom: 2rem;
 }
+.game__info {
+  padding: 1.5rem;
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+  height: 33.75rem;
+  min-width: 10rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #c96a2b;
+  border-radius: 1.25rem;
+}
 
 /* Timer */
 .timer__container {
