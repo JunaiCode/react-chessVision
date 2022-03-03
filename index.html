@@ -45,7 +45,7 @@ function getRandom() {
 class Board extends React.Component {
     constructor(props) {
         super(props);
-        this.state={nomenclature: null};
+        this.state={nomenclature: null, items: []};
     }
 
     getRandom() {
@@ -63,9 +63,12 @@ class Board extends React.Component {
     ))};
 
     handleClick(i) {
+        this.setState(state=> ({
+            items: state.items.concat({id: i, value: i})
+        }))
         const label = document.getElementById("current-square-lbl");
         label.innerHTML = "Find this square: <strong>" + this.getRandom() + "</strong>";
-        
+        console.log(this.state.items);
     }
   
     renderSquare(i, j) {
@@ -92,6 +95,10 @@ class Board extends React.Component {
     }
 
   render() {
+
+    const listUl = this.state.items.map((item)=>{
+        return <li key={item.id}>{item.value}</li>;
+    });
     return (
         
         <div className="container">
@@ -187,6 +194,9 @@ class Board extends React.Component {
                 <h2>G</h2>
                 <h2>H</h2>
             </div>
+            <ul>
+                {listUl}
+            </ul>
         </div>
     );
   }
@@ -249,9 +259,10 @@ class Timer extends React.Component {
 
 class Game extends React.Component {
 
-  render() {
-    return (
-        <div>
+    render() {
+      
+      return (
+          <div>
             <div className="game">
                 <div className="game__numbers">
                     <h2>8</h2>
@@ -269,15 +280,12 @@ class Game extends React.Component {
                 <div className="game__info">
                     <div id="current-square-lbl">Find this square: <strong>N.A.</strong></div>
                     <hr/>
-                    <ul>
-                        
-                    </ul>
                 </div>
             </div>
             <Timer />
         </div>
-    );
-  }
+        );
+    }
 }
 
 ReactDOM.render(
@@ -285,15 +293,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
     </script>
-
-<div id="timer"></div>
-    <script type="text/babel">
-
-      /* ReactDOM.render(
-        <Timer />,
-        document.getElementById('timer')
-      ); */
-      </script>
-      </div>
 </body>
 </html>
