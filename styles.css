@@ -29,7 +29,7 @@ div {
 .square:hover {
   cursor: pointer;
   border-radius: 1.25rem;
-  filter: drop-shadow(0 0 1rem #f06f6fcc);
+  filter: drop-shadow(0 0 0.5rem #f06f6fee);
 }
 .square__tl {
   border-radius: 1.25rem 0 0 0;
@@ -73,6 +73,19 @@ div {
 .game {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+/* Timer */
+.timer__container {
+  padding: 0 24rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #883333;
+}
+.timer__wrapper {
+  display: flex;
   align-items: center;
 }
 

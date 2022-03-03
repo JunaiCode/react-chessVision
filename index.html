@@ -216,14 +216,18 @@ ReactDOM.render(
       
         render() {
           return (
-            <div>
-              <b>TIME: </b> 
-              {this.state.minutes}:
-              {this.state.seconds}
-              <div>
-              <button onClick={() => this.startTime()}>START</button>
-              </div>
-            </div>
+                <div className="timer__container">
+                    <div className="timer__wrapper">
+                        <h3>TIME: </h3>
+                        <h4> 
+                            {this.state.minutes}:
+                            {this.state.seconds}
+                        </h4>
+                    </div>
+                    <div>
+                        <button onClick={() => this.startTime()}>START</button>
+                    </div>
+                </div>
           );
         }
       }
