@@ -23,7 +23,7 @@
                'h1','h2','h3','h4','h5','h6','h7','h8'];
 
  function getRandom() {
-    let randomIndex = Math.floor((Math.random() * (64 + 1)));
+    let randomIndex = Math.floor((Math.random() * (VALUES.length + 1)));
     let value = VALUES[randomIndex]
     array.splice(randomIndex, randomIndex); 
     return value ;
