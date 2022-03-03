@@ -84,6 +84,7 @@ div {
   justify-content: space-between;
   border-radius: 1.25rem;
   background-color: #c96a2b;
+  min-height: 3.75rem;
 }
 .timer__timer {
   font-weight: bold;
@@ -105,6 +106,13 @@ div {
 .timer__start-btn:hover {
   cursor: pointer;
   filter: drop-shadow(0 0 0.75rem #ff3d0dee);
+}
+.timer__start-btn:disabled {
+  opacity: 50%;
+}
+.timer__start-btn:disabled:hover {
+  cursor: default;
+  filter: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

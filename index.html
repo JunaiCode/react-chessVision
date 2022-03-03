@@ -43,35 +43,38 @@
 }
 
 class Board extends React.Component {
-  
     constructor(props) {
-    super(props);
-    this.state = {
-      squares: Array(64).fill(null)
-    };
-  }
+        super(props);
+        this.state = {
+            squares: Array(64).fill(null)
+        };
+    }
+
+    squareClicked() {
+
+    }
   
     renderSquare(i, j) {
-      const isEven = j % 2 == 0;
-      const cornerClasses = [
-          " square__tl", " square__tr", " square__br", " square__bl"
-      ];
-      let cornerClass = "";
-      switch (i) {
-        case 'a8':
-            cornerClass = cornerClasses[0];
-            break;
-        case 'h8':
-            cornerClass = cornerClasses[1];
-            break;
-        case 'h1':
-            cornerClass = cornerClasses[2];
-            break;
-        case 'a1':
-            cornerClass = cornerClasses[3];
-            break;
-      }
-    return <Square even={isEven} cornerClass={cornerClass} value={i}/>;
+        const isEven = j % 2 == 0;
+        const cornerClasses = [
+            " square__tl", " square__tr", " square__br", " square__bl"
+        ];
+        let cornerClass = "";
+        switch (i) {
+            case 'a8':
+                cornerClass = cornerClasses[0];
+                break;
+            case 'h8':
+                cornerClass = cornerClasses[1];
+                break;
+            case 'h1':
+                cornerClass = cornerClasses[2];
+                break;
+            case 'a1':
+                cornerClass = cornerClasses[3];
+                break;
+        }
+        return <Square even={isEven} cornerClass={cornerClass} value={i} onClick={() => this.squareClicked()}/>;
     }
 
   render() {
@@ -214,7 +217,9 @@ ReactDOM.render(
         }
       
         startTime() {
-          this.interval = setInterval(() => this.tick(), 1000);
+            const btn = document.getElementById('timer__start-btn');
+            btn.disabled = "disabled";
+            this.interval = setInterval(() => this.tick(), 1000);
         }
       
         componentWillUnmount() {
@@ -234,7 +239,7 @@ ReactDOM.render(
                 <div className="timer__container">
                     <p className="timer__timer">TIME:   0{this.state.minutes}:{this.state.seconds}</p>
                     <div>
-                        <button className="timer__start-btn" onClick={() => this.startTime()}>START</button>
+                        <button id="timer__start-btn" className="timer__start-btn" onClick={() => this.startTime()}>START</button>
                     </div>
                 </div>
           );

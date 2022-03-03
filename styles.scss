@@ -107,6 +107,7 @@ div {
         justify-content: space-between;
         border-radius: $cornerValue;
         background-color: $timerBarBackground;
+        min-height: 3.75rem;
     }
 
     &__timer {
@@ -130,6 +131,14 @@ div {
         &:hover {
             cursor: pointer;
             filter: drop-shadow(0 0 0.75rem $highlightAlt); 
+        }
+
+        &:disabled {
+            opacity: 50%;
+            &:hover {
+                cursor: default;
+                filter: none;
+            }
         }
     }
 }
