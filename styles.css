@@ -5,9 +5,25 @@
   height: 5rem;
   border: none;
   background-color: #a5ebeb;
+  /* Corners */
 }
 .square__colored {
+  width: 5rem;
+  height: 5rem;
+  border: none;
   background-color: #2e72aa;
+}
+.square__tl {
+  border-radius: 1.5625rem 0 0 0;
+}
+.square__tr {
+  border-radius: 0 1.5625rem 0 0;
+}
+.square__br {
+  border-radius: 0 0 1.5625rem 0;
+}
+.square__bl {
+  border-radius: 0 0 0 1.5625rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
