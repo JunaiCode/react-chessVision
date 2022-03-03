@@ -45,7 +45,7 @@ function getRandom() {
 class Board extends React.Component {
     constructor(props) {
         super(props);
-        this.state={nomenclature: null, items: [], score: 0};
+        this.state={nomenclature: null, items: []};
     }
 
     getRandom() {
@@ -65,14 +65,11 @@ class Board extends React.Component {
     handleClick(i) {
         const correct = document.getElementById("current-square-lbl").innerHTML.includes(i);
         const class_ = correct ? "correct" : "incorrect"
-        const score_ = correct ? score_ + 1 : score_;
         this.setState(state=> ({
             items: state.items.concat({id: i, value: i, class: class_}),
-            score: score_
         }))
         const label = document.getElementById("current-square-lbl");
         label.innerHTML = "Find this square: <strong>" + this.getRandom() + "</strong>";
-        console.log(this.state.items);
     }
   
     renderSquare(i, j) {
@@ -203,7 +200,7 @@ class Board extends React.Component {
             <div className="game__info">
                 <div id="current-square-lbl">Find this square: <strong>N.A.</strong></div>
                 <hr/>
-                <ul>
+                <ul id="list">
                     {listUl}
                 </ul>
             </div>
@@ -242,10 +239,19 @@ class Timer extends React.Component {
         <Timer/>
         this.interval = setInterval(() => this.tick(), 1000);
     }
+
+    checkScore() {
+        const list_ = document.getElementById("list");
+        let counter = 0;
+        list_.childNodes.forEach(element => {
+            counter = element.classList.contains("correct") ? counter + 1 : counter; 
+        });
+        return counter;
+    }
     
     componentWillUnmount() {
         clearInterval(this.interval);
-        alert("Time's up!\nScore: ");
+        alert("Time's up!\nScore: " + this.checkScore());
     }
 
     minutes(){
