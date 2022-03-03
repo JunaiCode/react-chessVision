@@ -22,12 +22,7 @@
                'g1','g2','g3','g4','g5','g6','g7','g8',
                'h1','h2','h3','h4','h5','h6','h7','h8'];
 
- function getRandom() {
-    let randomIndex = Math.floor((Math.random() * (VALUES.length + 1)));
-    let value = VALUES[randomIndex]
-    array.splice(randomIndex, randomIndex); 
-    return value ;
- }
+
  
  class Square extends React.Component {
     render() {
@@ -45,8 +40,23 @@
 class Board extends React.Component {
     constructor(props) {
     super(props);
-
+    this.state={nomenclature: null};
   }
+
+    getRandom() {
+    let randomIndex = Math.floor((Math.random() * (VALUES.length + 1)));
+    let value = VALUES[randomIndex]
+    array.splice(randomIndex, randomIndex);
+    alert(value);
+    return value ;
+ }
+
+
+  generateNomenclature(i) {
+          this.setState(state => ({
+            nomenclature: i 
+          }
+          ))};
 
   handleClick(i) {
     const label = document.getElementById("current-square-lbl");
@@ -77,8 +87,8 @@ class Board extends React.Component {
     }
 
   render() {
-
     return (
+        
         <div className="container">
             <div className="board">
                 <div className="board__row">
@@ -210,7 +220,7 @@ ReactDOM.render(
 );
     </script>
 
-<div id="timer">
+<div id="timer"></div>
     <script type="text/babel">
     class Timer extends React.Component {
         constructor(props) {
@@ -237,6 +247,7 @@ ReactDOM.render(
         startTime() {
             const btn = document.getElementById('timer__start-btn');
             btn.disabled = "disabled";
+            <Nomenclature/>
             this.interval = setInterval(() => this.tick(), 1000);
         }
         
@@ -263,12 +274,40 @@ ReactDOM.render(
           );
         }
       }
-      
+
       ReactDOM.render(
         <Timer />,
         document.getElementById('timer')
       );
       </script>
-     
+      </div>
+
+    <div id="nomenclature"></div>
+    <script type="text/babel">
+    class Nomenclature extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = { nomenclature: null};
+        }
+
+        generateNomenclature(i) {
+          this.setState(state => ({
+            nomenclature: i 
+          }
+          ))};
+      
+        render() {
+          return (
+                <div >
+                    <h1 >{this.state.nomenclature}</h1>
+                </div>
+          );
+        }}
+
+      ReactDOM.render(
+        <Nomenclature/>,
+        document.getElementById('nomenclature')
+      );
+      </script>
 </body>
 </html>
